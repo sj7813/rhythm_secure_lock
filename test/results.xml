@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1759228822" />
+    <testcase name="test_7seg" classname="test" file="/home/sjcho/factory-test-sim/test/test.py" lineno="10" time="7.269576549530029" sim_time_ns="614590000.001" ratio_time="84542750.98605746" />
+  </testsuite>
+</testsuites>
