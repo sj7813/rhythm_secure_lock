@@ -22,13 +22,15 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
+  wire [6:0] segments = uo_out [6:0];
+
 `ifdef GL_TEST
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
 `endif
 
-  // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  // Replace tt_um_factory_test with your module name:
+  tt_um_seven_segment_seconds tt_um_seven_segment_seconds (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
