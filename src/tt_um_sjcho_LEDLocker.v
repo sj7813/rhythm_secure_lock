@@ -52,8 +52,8 @@ module tt_um_sjcho_LEDLocker (
     assign uo_out[7]   = flag_unlock;
 
     // [미사용 핀 처리]
-    assign uio_out = 0;
-    assign uio_oe  = 0;
+    assign uio_out = 8'b00000000;
+    assign uio_oe  = 8'b00000000;
 
     // ==========================================
     // 1. 상태 정의 (S_CONFIRM 추가됨)
