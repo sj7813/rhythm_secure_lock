@@ -1,0 +1,39 @@
+{
+       "DESIGN_NAME": "tt_um_sjcho_LEDLocker",
+       "VERILOG_FILES": [
+	       "dir::tt_um_sjcho_LEDLocker.v",
+	       "dir::button_debouncer.v",
+	       "dir::comparator.v",
+	       "dir::password_storage.v",
+	       "dir::LED_rhythm_generator.v"
+       ],
+       "DESIGN_IS_CORE": 0,
+       "ROUTING_CORES": 2,
+
+       "//": "--- Timing Configuration (50MHz) ---",
+       "CLOCK_PORT": "clk",
+       "CLOCK_NET": "clk",
+       "CLOCK_PERIOD": 20.0,
+
+       "//": "--- Placement & Density Configuration ---",
+       "PL_TARGET_DENSITY": 0.60,
+       "PL_BASIC_PLACEMENT": 0,
+       "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
+       "GLB_RESIZER_HOLD_SLACK_MARGIN": 0.05,
+       "PL_RESIZER_BUFFER_OUTPUT_PORTS": 0,
+
+       "//": "--- Routing & DRC Configuration ---",
+       "GRT_ALLOW_CONGESTION": 1,
+       "RUN_KLAYOUT_DRC": 0,
+       "RUN_KLAYOUT_XOR": 0,
+       "RUN_LINTER": 1,
+
+       "//": "--- Floorplanning ---",
+       "FP_SIZING": "absolute",
+       "FP_PDN_VPITCH": 38.87,
+       "RT_MAX_LAYER": "met4"
+}
+
+
+
+

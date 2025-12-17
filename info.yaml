@@ -1,0 +1,60 @@
+# Tiny Tapeout project information
+project:
+  title:        "LED_Locker"      # Project title
+  author:       "SJ CHO"             # Your name
+  discord:      ""                         # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "A digital password locker system that records a custom LED pattern and compares user input to unlock. Features debounced button inputs and FSM-based state control."      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     10000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_sjcho_LEDLocker"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "tt_um_sjcho_LEDLocker.v"
+    - "LED_rhythm_generator.v"
+    - "password_storage.v"
+    - "comparator.v"
+    - "button_debouncer.v"   
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "Record Button"
+  ui[1]: "Enter Button"
+  ui[2]: "Key Bit 0"
+  ui[3]: "Key Bit 1"
+  ui[4]: "Key Bit 2"
+  ui[5]: "Key Bit 3"
+  ui[6]: "Unused"
+  ui[7]: "Unused"
+
+  # Outputs
+  uo[0]: "Rhythm LED 1"
+  uo[1]: "Rhythm LED 2"
+  uo[2]: "Rhythm LED 3"
+  uo[3]: "Rhythm LED 4"
+  uo[4]: "Status LED (Yellow)"
+  uo[5]: "Status LED (Green)"
+  uo[6]: "Status LED (Red)"
+  uo[7]: "Unlock Signal"
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
