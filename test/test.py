@@ -5,7 +5,7 @@ from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 @cocotb.test()
 async def test_led_locker(dut):
     # 1. 클럭 설정 (10MHz 가정, 필요시 조정)
-    clock = Clock(dut.clk, 100, units="ns")
+    clock = Clock(dut.clk, 100, unit="ns")
     cocotb.start_soon(clock.start())
 
     # 2. 초기화 (Reset)
@@ -30,7 +30,8 @@ async def test_led_locker(dut):
     for i in range(4):
         dut._log.info(f"Recording digit {i}")
         dut.ui_in.value = (0x01 << 2)  # key_in = 4'b0001
-        dut.ui_in.value |= 0x02 # Enter(ui_in[1]) = 1
+        val = (0x01 << 2) | 0x02
+        dut.ui_in.value = val
         await ClockCycles(dut.clk, 20)
         dut.ui_in.value &= ~0x02 # Enter = 0
         await ClockCycles(dut.clk, 100) # 처리 시간 대기
@@ -47,7 +48,7 @@ async def test_led_locker(dut):
             await ClockCycles(dut.clk, 100)
         # 최종 결과 확인 (flag_unlock = uo_out[7])  
         await ClockCycles(dut.clk, 200)
-        if dut.uo_out.value & 0x80:
+        if int(dut.uo_out.value) & 0x80:
             dut._log.info("SUCCESS: Unlock Flag is HIGH!")
         else:
             dut._log.error("FAIL: Unlock Flag is {dut.uo_out.value.integer}")
