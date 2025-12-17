@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-
+      - name: setup typst
+        uses: chih-shun/setup-typst@v1
       - name: Build docs
         uses: TinyTapeout/tt-gds-action/docs@tt08
