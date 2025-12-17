@@ -30,6 +30,7 @@ documentation:
     5. Check the flag_unlock (uo_out[7]) to see if it matches.
 
 # 입출력 핀 설명 (비어있으면 에러가 날 수 있으니 모두 채워야 함)
+pinout:
   # inputs:
   ui[0]: "record_button"
   ui[1]: "enter_button"
