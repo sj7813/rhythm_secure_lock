@@ -30,34 +30,35 @@ documentation:
     5. Check the flag_unlock (uo_out[7]) to see if it matches.
 
 # 입출력 핀 설명 (비어있으면 에러가 날 수 있으니 모두 채워야 함)
-inputs:
-  - record button (ui_in[0])
-  - enter button (ui_in[1])
-  - key input 0 (ui_in[2])
-  - key input 1 (ui_in[3])
-  - key input 2 (ui_in[4])
-  - key input 3 (ui_in[5])
-  - none
-  - none
-outputs:
-  - rhythm led 0 (uo_out[0])
-  - rhythm led 1 (uo_out[1])
-  - rhythm led 2 (uo_out[2])
-  - rhythm led 3 (uo_out[3])
-  - status led 0 (uo_out[4])
-  - status led 1 (uo_out[5])
-  - status led 2 (uo_out[6])
-  - unlock flag (uo_out[7])
-# 양방향 핀 (사용하지 않더라도 리스트는 유지해야 함)
-tests:
-  - none
-  - none
-  - none
-  - none
-  - none
-  - none
-  - none
-  - none
+  # inputs:
+  ui[0]: "record_button"
+  ui[1]: "enter_button"
+  ui[2]: "key_in[0]"
+  ui[3]: "key_in[1]"
+  ui[4]: "key_in[2]"
+  ui[5]: "key_in[3]"
+  ui[6]: "none"
+  ui[7]: "none"
+
+  # Outputs
+  uo[0]: "led_rhythm[0]"
+  uo[1]: "led_rhythm[1]"
+  uo[2]: "led_rhythm[2]"
+  uo[3]: "led_rhythm[3]"
+  uo[4]: "led_status[0]"
+  uo[5]: "led_status[1]"
+  uo[6]: "led_status[2]"
+  uo[7]: "flag_unlock"
+
+  # Bidirectional pins
+  uio[0]: "unused"
+  uio[1]: "unused"
+  uio[2]: "unused"
+  uio[3]: "unused"
+  uio[4]: "unused"
+  uio[5]: "unused"
+  uio[6]: "unused"
+  uio[7]: "unused"
 
 # Do not change!
 yaml_version: 6
