@@ -1,11 +1,12 @@
 # Tiny Tapeout 프로젝트 정보 파일
 project:
-  title:        "Rhythm Secure LED Locker"      # 프로젝트 제목
+  title:  "Rhythm Secure LED Locker"      # 프로젝트 제목
   description:  "A security lock system that unlocks by recording and matching LED rhythm patterns." # 상세 설명
   author:       "sjcho"                         # 작성자 이름
   discord:      "none"                          # 디스코드 아이디 (없으면 "none")
   language:     "Verilog"                       # 사용 언어
   top_module:   "tt_um_sjcho_LEDLocker"         # [중요] 최상위 모듈 이름과 반드시 일치해야 함
+  tiles:   "1x1"
 
 # 설계 설명 (최소 한 문장 이상)
 documentation:
