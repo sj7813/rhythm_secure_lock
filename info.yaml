@@ -13,6 +13,8 @@ project:
     - LED_rhythm_generator.v
     - comparator.v
     - password_storage.v
+  clock_hz: 50000000
+
 # 설계 설명
 documentation:
   how_it_works: |
