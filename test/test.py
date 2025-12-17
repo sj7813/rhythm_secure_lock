@@ -33,7 +33,7 @@ async def test_led_locker(dut):
         val = (0x01 << 2) | 0x02
         dut.ui_in.value = val
         await ClockCycles(dut.clk, 20)
-        dut.ui_in.value &= ~0x02 # Enter = 0
+        val_release = (0x01 << 2) &= ~0x02 # Enter = 0
         await ClockCycles(dut.clk, 100) # 처리 시간 대기
 
         # --- 2단계: 검증 모드 진입 (S_CHECK) ---
