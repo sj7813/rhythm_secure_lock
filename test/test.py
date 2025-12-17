@@ -50,7 +50,7 @@ async def test_led_locker(dut):
         if dut.uo_out.value & 0x80:
             dut._log.info("SUCCESS: Unlock Flag is HIGH!")
         else:
-            dut._log.error("FAIL: Unlock Flag is {dut.uo_out.value}")
+            dut._log.error("FAIL: Unlock Flag is {dut.uo_out.value.integer}")
 
         await ClockCycles(dut.clk, 100)
 
