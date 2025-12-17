@@ -1,60 +1,55 @@
-# Tiny Tapeout project information
+# Tiny Tapeout 프로젝트 정보 파일
 project:
-  title:        "LED_Locker"      # Project title
-  author:       "sjcho"             # Your name
-  discord:      "sj7813"                         # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "A digital password locker system that records a custom LED pattern and compares user input to unlock. Features debounced button inputs and FSM-based state control."      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     10000000       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "Rhythm Secure LED Locker"      # 프로젝트 제목
+  description:  "A security lock system that unlocks by recording and matching LED rhythm patterns." # 상세 설명
+  author:       "sjcho"                         # 작성자 이름
+  discord:      "none"                          # 디스코드 아이디 (없으면 "none")
+  language:     "Verilog"                       # 사용 언어
+  top_module:   "tt_um_sjcho_LEDLocker"         # [중요] 최상위 모듈 이름과 반드시 일치해야 함
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+# 설계 설명 (최소 한 문장 이상)
+documentation:
+  how_it_works: |
+    This project is a rhythm-based digital lock. 
+    It records a specific timing pattern of button presses (rhythm) and stores it. 
+    When the user enters a pattern again, it compares the input rhythm with the stored one. 
+    If they match, the lock opens (unlocks).
+  how_to_test: |
+    1. Reset the system using the rst_n pin (active low).
+    2. Press the record button (ui_in[0]) to start recording your rhythm.
+    3. Input your rhythm using the key_in pins (ui_in[5:2]).
+    4. Press the enter button (ui_in[1]) to verify the pattern.
+    5. Check the flag_unlock (uo_out[7]) to see if it matches.
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_sjcho_LEDLocker"
-
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
-  source_files:
-    - "tt_um_sjcho_LEDLocker.v"
-    - "LED_rhythm_generator.v"
-    - "password_storage.v"
-    - "comparator.v"
-    - "button_debouncer.v"   
-
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
-pinout:
-  # Inputs
-  ui[0]: "Record Button"
-  ui[1]: "Enter Button"
-  ui[2]: "Key Bit 0"
-  ui[3]: "Key Bit 1"
-  ui[4]: "Key Bit 2"
-  ui[5]: "Key Bit 3"
-  ui[6]: "Unused"
-  ui[7]: "Unused"
-
-  # Outputs
-  uo[0]: "Rhythm LED 1"
-  uo[1]: "Rhythm LED 2"
-  uo[2]: "Rhythm LED 3"
-  uo[3]: "Rhythm LED 4"
-  uo[4]: "Status LED (Yellow)"
-  uo[5]: "Status LED (Green)"
-  uo[6]: "Status LED (Red)"
-  uo[7]: "Unlock Signal"
-
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+# 입출력 핀 설명 (비어있으면 에러가 날 수 있으니 모두 채워야 함)
+inputs:
+  - record button (ui_in[0])
+  - enter button (ui_in[1])
+  - key input 0 (ui_in[2])
+  - key input 1 (ui_in[3])
+  - key input 2 (ui_in[4])
+  - key input 3 (ui_in[5])
+  - none
+  - none
+outputs:
+  - rhythm led 0 (uo_out[0])
+  - rhythm led 1 (uo_out[1])
+  - rhythm led 2 (uo_out[2])
+  - rhythm led 3 (uo_out[3])
+  - status led 0 (uo_out[4])
+  - status led 1 (uo_out[5])
+  - status led 2 (uo_out[6])
+  - unlock flag (uo_out[7])
+# 양방향 핀 (사용하지 않더라도 리스트는 유지해야 함)
+tests:
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
 
 # Do not change!
 yaml_version: 6
